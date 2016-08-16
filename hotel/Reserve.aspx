@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true"  CodeFile="Reserve.aspx.cs" Inherits="Reserve" MasterPageFile="~/Site.master" Title="ASP.NET Scheduler Tutorial"  %>
+﻿<%@ Page Language="C#" AutoEventWireup="true"  CodeFile="Reserve.aspx.cs" Inherits="Reserve" MasterPageFile="~/Site.master"  %>
 <%@ Register Assembly="DayPilot" Namespace="DayPilot.Web.Ui" TagPrefix="DayPilot" %>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
 

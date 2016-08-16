@@ -1,16 +1,29 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="hotel.default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="hotel.Default"  MasterPageFile="~/Site.master"%>
 
-<!DOCTYPE html>
+<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Hello</title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-       How are you
-    </div>
-    </form>
-</body>
-</html>
+    
+    
+    <p>
+    <img alt="" src="" /><img alt="" class="auto-style1" src="Images/Room.jpg" /></p>
+
+    
+    
+</asp:Content>
+
+
+
+
+<asp:Content ID="Content1" runat="server" contentplaceholderid="HeadContent">
+    <style type="text/css">
+    .auto-style1 {
+        width: 743px;
+        height: 415px;
+    }
+</style>
+</asp:Content>
+
+
+
+
+

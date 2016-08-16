@@ -17,15 +17,6 @@ C:\Users\user\Documents\Visual Studio 2015\Projects\hotel\hotel\bin\roslyn\VBCSC
 C:\Users\user\Documents\Visual Studio 2015\Projects\hotel\hotel\bin\hotel.dll.config
 C:\Users\user\Documents\Visual Studio 2015\Projects\hotel\hotel\bin\hotel.dll
 C:\Users\user\Documents\Visual Studio 2015\Projects\hotel\hotel\bin\hotel.pdb
-C:\Users\user\Documents\Visual Studio 2015\Projects\hotel\hotel\bin\DayPilot.dll
-C:\Users\user\Documents\Visual Studio 2015\Projects\hotel\hotel\bin\Microsoft.AI.Agent.Intercept.dll
-C:\Users\user\Documents\Visual Studio 2015\Projects\hotel\hotel\bin\Microsoft.AI.DependencyCollector.dll
-C:\Users\user\Documents\Visual Studio 2015\Projects\hotel\hotel\bin\Microsoft.AI.PerfCounterCollector.dll
-C:\Users\user\Documents\Visual Studio 2015\Projects\hotel\hotel\bin\Microsoft.AI.ServerTelemetryChannel.dll
-C:\Users\user\Documents\Visual Studio 2015\Projects\hotel\hotel\bin\Microsoft.AI.Web.dll
-C:\Users\user\Documents\Visual Studio 2015\Projects\hotel\hotel\bin\Microsoft.AI.WindowsServer.dll
-C:\Users\user\Documents\Visual Studio 2015\Projects\hotel\hotel\bin\Microsoft.ApplicationInsights.dll
-C:\Users\user\Documents\Visual Studio 2015\Projects\hotel\hotel\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\user\Documents\Visual Studio 2015\Projects\hotel\hotel\bin\Microsoft.AI.DependencyCollector.xml
 C:\Users\user\Documents\Visual Studio 2015\Projects\hotel\hotel\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\user\Documents\Visual Studio 2015\Projects\hotel\hotel\bin\Microsoft.AI.Web.xml
@@ -34,3 +25,4 @@ C:\Users\user\Documents\Visual Studio 2015\Projects\hotel\hotel\bin\Microsoft.Ap
 C:\Users\user\Documents\Visual Studio 2015\Projects\hotel\hotel\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\user\Documents\Visual Studio 2015\Projects\hotel\hotel\obj\Debug\hotel.dll
 C:\Users\user\Documents\Visual Studio 2015\Projects\hotel\hotel\obj\Debug\hotel.pdb
+C:\Users\user\Documents\Visual Studio 2015\Projects\hotel\hotel\bin\AjaxControlToolkit.dll
