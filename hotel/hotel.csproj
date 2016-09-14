@@ -138,7 +138,9 @@
     <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
     <Content Include="bin\roslyn\vbc.exe" />
     <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="controlReserve.aspx" />
     <Content Include="Images\Room.jpg" />
+    <Content Include="managerLogin.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -176,12 +178,26 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Compile Include="controlReserve.aspx.cs">
+      <DependentUpon>controlReserve.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="controlReserve.aspx.designer.cs">
+      <DependentUpon>controlReserve.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="managerLogin.aspx.cs">
+      <DependentUpon>managerLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="managerLogin.aspx.designer.cs">
+      <DependentUpon>managerLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registration.aspx.cs">
       <DependentUpon>Registration.aspx</DependentUpon>

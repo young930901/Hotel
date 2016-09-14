@@ -3,6 +3,7 @@ using System.Data;
 using System.Configuration;
 using System.Data.SqlClient;
 using DayPilot.Utils;
+using System.Globalization;
 
 public partial class Reserve : System.Web.UI.Page
 {
@@ -45,7 +46,7 @@ public partial class Reserve : System.Web.UI.Page
         return dt;
     }
 
-    private void DbUpdateEvent(string id, DateTime start, DateTime end, string resource)
+    private void DbUpdateEvent(String id, DateTime start, DateTime end, string resource)
     {
         using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DayPilot"].ConnectionString))
         {
@@ -152,5 +153,55 @@ public partial class Reserve : System.Web.UI.Page
         DbClearEvents();
         DbClearResources();
         Response.Redirect(Request.Url.PathAndQuery);
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["daypilot"].ConnectionString);
+        conn.Open();
+        string checkuser = "select count(*) from [UserData] where UserName='" + ID.Text + "' AND Password='" + PW.Text +"'";
+        SqlCommand com = new SqlCommand(checkuser, conn);
+        int count = Convert.ToInt32(com.ExecuteScalar().ToString());
+        int id;
+
+        DateTime startDate = DateTime.Parse(Start.Text);
+        //DateTime startDate = DateTime.ParseExact(Start.Text, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+        //DateTime endDate = DateTime.ParseExact(End.Text, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+        DateTime endDate = DateTime.Parse(End.Text);
+
+        if (count != 1)
+        {
+            ClientScript.RegisterStartupScript(Page.GetType(), "validation", "<script language='javascript'>alert('Invalid Username and Password')</script>");
+        }
+        else if (startDate > endDate)
+        {
+            ClientScript.RegisterStartupScript(Page.GetType(), "validation", "<script language='javascript'>alert('Start Date should be earlier than End date')</script>");
+        }
+        else 
+        {
+            string checkID = "select id from [resource] where name='" + DropDownList1.SelectedValue + "'";
+            com = new SqlCommand(checkID, conn);
+            count = Convert.ToInt32(com.ExecuteScalar().ToString());
+            id = count;
+
+            string checkDate = "select count(*) from [event] where resource_id='" + count + "' AND eventstart <='" + startDate + "' AND eventend >= '" + startDate + "'";
+            //string checkDate = "select count(*) from [event] where eventstart <='" + startDate + "' AND eventend >= '" + startDate + "'";
+            com = new SqlCommand(checkDate, conn);
+            count = Convert.ToInt32(com.ExecuteScalar().ToString());
+            if (count >= 1)
+            {
+                ClientScript.RegisterStartupScript(Page.GetType(), "validation", "<script language='javascript'>alert('Selected Date is already reserved')</script>");
+            }
+            DbInsertEvent(startDate, endDate, ID.Text, id);
+        }
+        
+
+        conn.Close();
+        Response.Redirect(Request.Url.PathAndQuery);
+    }
+
+    protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
     }
 }
