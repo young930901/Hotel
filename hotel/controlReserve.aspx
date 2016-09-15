@@ -67,7 +67,7 @@
             <tr>
                 <td class="auto-style3">Room</td>
                 <td class="auto-style5">
-                    <asp:DropDownList ID="Room2" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name" OnSelectedIndexChanged="Room2_SelectedIndexChanged">
+                    <asp:DropDownList ID="Room2" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name">
                     </asp:DropDownList>
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:daypilot %>" SelectCommand="SELECT [name] FROM [resource]"></asp:SqlDataSource>
                 </td>
@@ -77,7 +77,10 @@
             </tr>
             <tr>
                 <td>Delete</td>
-                <td></td>
+                <td>
+                    <asp:ScriptManager ID="ScriptManager1" runat="server">
+                    </asp:ScriptManager>
+                </td>
                 <td></td>
                 </tr>
             <tr>

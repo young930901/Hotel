@@ -158,8 +158,23 @@ namespace hotel
         {
             Random rand = new Random();
             int id = rand.Next(1,200);
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["daypilot"].ConnectionString);
+            con.Open();
 
+            while (true) 
+            {
+                string checkuser = "select count(*) from [resource] where id='" + id + "'";
+                SqlCommand com = new SqlCommand(checkuser, con);
+                int count = Convert.ToInt32(com.ExecuteScalar().ToString());
+
+                if (count == 0)
+                    break;
+                else
+                    id = rand.Next(1, 200);
+            }
+            
             DbInsertResource(Room1.Text, id);
+            Response.Redirect(Request.Url.PathAndQuery);
         }
 
         protected void Submit_Event_Click(object sender, EventArgs e)
@@ -173,6 +188,7 @@ namespace hotel
             int count = Convert.ToInt32(com.ExecuteScalar().ToString());
 
             DbInsertEvent(DateTime.Parse(Start.Text),DateTime.Parse(End.Text),Name.Text,count);
+            Response.Redirect(Request.Url.PathAndQuery);
         }
 
         protected void Submit_Delete1_Click(object sender, EventArgs e)
@@ -181,6 +197,7 @@ namespace hotel
             conn.Open();
             SqlCommand cmd = new SqlCommand("delete from [resource] where name='"+DropDownList1.SelectedValue +"'", conn);
             cmd.ExecuteNonQuery();
+            Response.Redirect(Request.Url.PathAndQuery);
         }
 
         protected void Submit_Delete2_Click(object sender, EventArgs e)
@@ -189,6 +206,9 @@ namespace hotel
             conn.Open();
             SqlCommand cmd = new SqlCommand("delete from [event] where name='" + DropDownList2.SelectedValue + "'", conn);
             cmd.ExecuteNonQuery();
+            Response.Redirect(Request.Url.PathAndQuery);
         }
+
+        
     }
 }
