@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using DayPilot.Utils;
 using System.Globalization;
+using System.Net.Mail;
 
 public partial class Reserve : System.Web.UI.Page
 {
@@ -194,14 +195,37 @@ public partial class Reserve : System.Web.UI.Page
             }
             DbInsertEvent(startDate, endDate, ID.Text, id);
         }
-        
 
+        string checkEmail = "select email from [UserData] where UserName='" +ID.Text+"'";
+        com = new SqlCommand(checkEmail, conn);
+        string email = com.ExecuteScalar().ToString();
+
+        Send_Email(email);
         conn.Close();
         Response.Redirect(Request.Url.PathAndQuery);
     }
 
-    protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+    public void Send_Email(string emailaddress)
     {
+        
+        try
+        {
+            MailMessage mail = new MailMessage();
+            SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
 
+            mail.From = new MailAddress("hotelwebsample@gmail.com");
+            mail.To.Add(emailaddress);
+            mail.Subject = "Test Mail";
+            mail.Body = "This is for testing SMTP mail from GMAIL";
+
+            SmtpServer.Port = 587;
+            SmtpServer.Credentials = new System.Net.NetworkCredential("hotelwebsample", "aabbcc112233");
+            SmtpServer.EnableSsl = true;
+            SmtpServer.Send(mail);
+        }
+        catch (Exception ex)
+        {
+            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + ex.ToString() + "');", true);
+        }
     }
 }

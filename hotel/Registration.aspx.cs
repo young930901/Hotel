@@ -16,7 +16,7 @@ namespace hotel
             this.UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None;
             if (IsPostBack)
             {
-                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Registration"].ConnectionString);
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DayPilot"].ConnectionString);
                 conn.Open();
                 string checkuser = "select count(*) from [UserData] where UserName='" + TextBoxUN.Text + "'";
                 SqlCommand com = new SqlCommand(checkuser, conn);
@@ -25,7 +25,17 @@ namespace hotel
                 {
                     Response.Write("User already exists");
                 }
+                else
+                {
+                    checkuser = "select count(*) from [UserData] where Email='" + TextBoxEmail.Text + "'";
+                    count = Convert.ToInt32(com.ExecuteScalar().ToString());
 
+                    if (count == 1)
+                    {
+                        Response.Write("Email is already taken");
+                    }
+                }
+                
                 conn.Close();
 
             }
@@ -40,7 +50,7 @@ namespace hotel
         {
             try
             {
-                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Registration"].ConnectionString);
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DayPilot"].ConnectionString);
                 conn.Open();
                 string insertQuery = "insert into [UserData] (UserName,Email,Password,Country) values (@Uname ,@email, @password, @country)";
                 SqlCommand com = new SqlCommand(insertQuery, conn);
@@ -50,7 +60,7 @@ namespace hotel
                 com.Parameters.AddWithValue("@country", SelectCountry.SelectedItem.ToString());
 
                 com.ExecuteNonQuery();
-                Response.Redirect("Manager.aspx");
+                Response.Redirect("Reserve.aspx");
                 Response.Write("Your registration is successful.");
 
                 conn.Close();

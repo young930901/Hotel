@@ -86,7 +86,7 @@
             <tr>
                 <td>Room</td>
                 <td>
-                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1">
+                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name">
                     </asp:DropDownList>
                 </td>
                 <td>

@@ -42,7 +42,7 @@
         <tr>
             <td class="auto-style3">Room Number</td>
             <td class="auto-style4">
-                <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="name">
                 </asp:DropDownList>
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:daypilot %>" SelectCommand="SELECT [name] FROM [resource]"></asp:SqlDataSource>
             </td>
